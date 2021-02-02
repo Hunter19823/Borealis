@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[33,)"
+issueTrackerURL = "https://github.com/Hunter19823/NotAurora/issues"
+license = "All Rights Reserved"
+
+[[mods]]
+modId="notaurora"
+version="${file.jarVersion}"
+displayName="Not Aurora"
+authors="ILIKEPIEFOO2"
+description='''
+Tottally not an updated verison of Aurora
+'''
+
+[[dependencies.notaurora]]
+modId="forge"
+mandatory = true
+versionRange = "[33,)"
+ordering = "NONE"
+side="BOTH"
