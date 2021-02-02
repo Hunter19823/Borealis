@@ -105,6 +105,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
 
     compile "curse.maven:aurora-342117:2817929"
+    compile "org.reflections:reflections:0.9.11"
+    //compile "curse.maven:kubejs-238086:3189113"
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
