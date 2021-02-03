@@ -1,16 +1,17 @@
 package pie.ilikepiefoo2.notaurora;
 
 
-import dev.latvian.mods.aurora.page.HTTPWebPage;
-import dev.latvian.mods.aurora.page.HomePageEntry;
-import dev.latvian.mods.aurora.page.WebPage;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import pie.ilikepiefoo2.notaurora.html.ClassHTML;
 import pie.ilikepiefoo2.notaurora.html.DocumentationHomePage;
+import pie.ilikepiefoo2.notaurora.page.HomePageEntry;
+import pie.ilikepiefoo2.notaurora.page.WebPage;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 @Mod.EventBusSubscriber
 public class EventHandler {

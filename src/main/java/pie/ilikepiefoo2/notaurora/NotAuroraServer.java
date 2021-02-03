@@ -1,10 +1,7 @@
 package pie.ilikepiefoo2.notaurora;
 
 
-import dev.latvian.mods.aurora.PageType;
-import dev.latvian.mods.aurora.page.WebPage;
-import dev.latvian.mods.aurora.page.WebPageNotFound;
-import dev.latvian.mods.aurora.page.WebPageUnauthorized;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
@@ -13,7 +10,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.*;
 import net.minecraftforge.common.MinecraftForge;
-import pie.ilikepiefoo2.notaurora.page.HomePage;
+import pie.ilikepiefoo2.notaurora.page.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

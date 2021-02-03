@@ -1,13 +1,12 @@
 package pie.ilikepiefoo2.notaurora.page;
 
 
-import dev.latvian.mods.aurora.page.HTTPWebPage;
-import dev.latvian.mods.aurora.page.HomePageEntry;
-import dev.latvian.mods.aurora.tag.Style;
-import dev.latvian.mods.aurora.tag.Tag;
+
 import net.minecraftforge.common.MinecraftForge;
 import pie.ilikepiefoo2.notaurora.AuroraHomePageEvent;
 import pie.ilikepiefoo2.notaurora.NotAuroraServer;
+import pie.ilikepiefoo2.notaurora.tag.Style;
+import pie.ilikepiefoo2.notaurora.tag.Tag;
 
 /**
  * @author LatvianModder

@@ -1,7 +1,8 @@
 package pie.ilikepiefoo2.notaurora;
 
-import dev.latvian.mods.aurora.page.HomePageEntry;
+
 import net.minecraftforge.eventbus.api.Event;
+import pie.ilikepiefoo2.notaurora.page.HomePageEntry;
 
 /**
  * @author LatvianModder

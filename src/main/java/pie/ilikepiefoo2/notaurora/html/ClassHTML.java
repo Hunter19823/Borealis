@@ -1,7 +1,9 @@
 package pie.ilikepiefoo2.notaurora.html;
 
-import dev.latvian.mods.aurora.page.HTTPWebPage;
-import dev.latvian.mods.aurora.tag.Tag;
+
+
+import pie.ilikepiefoo2.notaurora.page.HTTPWebPage;
+import pie.ilikepiefoo2.notaurora.tag.Tag;
 
 import java.lang.reflect.*;
 

@@ -1,9 +1,10 @@
 package pie.ilikepiefoo2.notaurora;
 
-import dev.latvian.mods.aurora.page.WebPage;
+
 import io.netty.handler.codec.http.FullHttpRequest;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.eventbus.api.Event;
+import pie.ilikepiefoo2.notaurora.page.WebPage;
 
 import javax.annotation.Nullable;
 
