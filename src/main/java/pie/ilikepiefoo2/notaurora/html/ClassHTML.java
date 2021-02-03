@@ -6,6 +6,7 @@ import pie.ilikepiefoo2.notaurora.page.HTTPWebPage;
 import pie.ilikepiefoo2.notaurora.tag.Tag;
 
 import java.lang.reflect.*;
+import java.util.*;
 
 public class ClassHTML extends HTTPWebPage {
     private final Class subject;
@@ -24,15 +25,30 @@ public class ClassHTML extends HTTPWebPage {
         body.h1("").a("KubeJS Documentation", "/kubejs_auto_docs");
 
         body.br();
-        body.h3(this.subject.toGenericString());
+        Tag classTag = body.h3(this.subject.toGenericString());
+        if(this.subject.getSuperclass() != null)
+        {
+            if(this.subject.getSuperclass().isInterface()) {
+                classTag.text(" extends ");
+            }else{
+                classTag.text(" implements ");
+            }
+            linkType(classTag,this.subject.getSuperclass());
+        }
+        if(this.subject.getEnclosingClass() != null) {
+            linkType(body.h3("Enclosing Class: "),this.subject.getEnclosingClass());
+        }
+        if(this.subject.getDeclaringClass() != null){
+            linkType(body.h3("Declaring Class: "),this.subject.getDeclaringClass());
+        }
         body.br();
 
         Tag constructorTable = body.table();
         Tag firstRow = constructorTable.tr();
         firstRow.th().a("Constructors","#constructors");
 
-        Constructor[] constructors = this.subject.getDeclaredConstructors();
-
+        List<Constructor> constructors = Arrays.asList(this.subject.getDeclaredConstructors());
+        Collections.sort(constructors, Comparator.comparing(Constructor::getName));
         for(Constructor constructor : constructors){
             addConstructor(constructorTable,constructor);
         }
@@ -44,8 +60,9 @@ public class ClassHTML extends HTTPWebPage {
         firstRow.th().a("Fields","#fields");
         firstRow.th().text("Type");
 
-        Field[] fields = this.subject.getDeclaredFields();
 
+        List<Field> fields = Arrays.asList(this.subject.getDeclaredFields());
+        Collections.sort(fields, Comparator.comparing(Field::getName));
         for(Field field : fields){
             addField(fieldTable, field);
         }
@@ -53,12 +70,13 @@ public class ClassHTML extends HTTPWebPage {
         body.br();
 
         Tag methodTable = body.table();
-        firstRow = fieldTable.tr();
+        firstRow = methodTable.tr();
         firstRow.th().a("Methods","#methods");
         firstRow.th().text("Returns");
 
-        Method[] methods = this.subject.getDeclaredMethods();
 
+        List<Method> methods = Arrays.asList(this.subject.getDeclaredMethods());
+        Collections.sort(methods, Comparator.comparing(Method::getName));
         for(Method method : methods){
             addMethod(methodTable,method);
         }

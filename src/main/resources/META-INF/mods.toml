@@ -9,12 +9,21 @@ version="${file.jarVersion}"
 displayName="Not Aurora"
 authors="ILIKEPIEFOO2"
 description='''
-Tottally not an updated verison of Aurora
+Tottally not an updated verison of Aurora.
+(Seriously though credit goes to Latvian Modder aka
+the other of Aurora and KubeJS)
 '''
 
 [[dependencies.notaurora]]
 modId="forge"
 mandatory = true
 versionRange = "[33,)"
+ordering = "NONE"
+side="BOTH"
+
+[[dependencies.notaurora]]
+modId="kubejs"
+mandatory = true
+versionRange = "[1603,)"
 ordering = "NONE"
 side="BOTH"

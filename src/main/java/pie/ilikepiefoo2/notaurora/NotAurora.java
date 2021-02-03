@@ -8,6 +8,7 @@ import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import pie.ilikepiefoo2.notaurora.html.DocumentationHomePage;
 
 @Mod("notaurora")
 public class NotAurora {
@@ -38,6 +39,7 @@ public class NotAurora {
     {
         if(server == null)
         {
+            DocumentationHomePage.loadBindings();
             LOGGER.debug("Starting up server...");
             server = new NotAuroraServer(port);
             server.start();

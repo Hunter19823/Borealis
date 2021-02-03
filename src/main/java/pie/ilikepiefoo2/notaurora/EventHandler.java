@@ -2,6 +2,7 @@ package pie.ilikepiefoo2.notaurora;
 
 
 
+import dev.latvian.kubejs.script.BindingsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import pie.ilikepiefoo2.notaurora.html.ClassHTML;
