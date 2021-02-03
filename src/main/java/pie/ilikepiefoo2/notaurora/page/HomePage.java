@@ -24,7 +24,7 @@ public class HomePage extends HTTPWebPage
     @Override
     public String getTitle()
     {
-        return "Aurora";
+        return "NotAurora";
     }
 
     @Override

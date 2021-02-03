@@ -1,14 +1,20 @@
 package pie.ilikepiefoo2.notaurora;
 
 
+import dev.latvian.mods.aurora.page.HTTPWebPage;
 import dev.latvian.mods.aurora.page.HomePageEntry;
+import dev.latvian.mods.aurora.page.WebPage;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import pie.ilikepiefoo2.notaurora.html.ClassHTML;
 import pie.ilikepiefoo2.notaurora.html.DocumentationHomePage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Mod.EventBusSubscriber
 public class EventHandler {
+    private static final Map<Class, WebPage> knownPages = new HashMap<Class,WebPage>();
 
     @SubscribeEvent
     public static void homePageEvent(AuroraHomePageEvent event)
@@ -22,14 +28,20 @@ public class EventHandler {
         if(event.getSplitUri()[0].equals("kubejs_auto_docs")) {
             if (event.getSplitUri().length == 1)
             {
-                event.returnPage(new DocumentationHomePage());
+                event.returnPage(DocumentationHomePage.getInstance());
             }
             else
             {
                 try
                 {
                     Class c = Class.forName(event.getSplitUri()[1]);
-                    event.returnPage(new ClassHTML(c));
+                    if(knownPages.containsKey(c)){
+                        event.returnPage(knownPages.get(c));
+                    }else {
+                        WebPage page = new ClassHTML(c);
+                        knownPages.put(c,page);
+                        event.returnPage(page);
+                    }
                 }
                 catch (Exception ex)
                 {
