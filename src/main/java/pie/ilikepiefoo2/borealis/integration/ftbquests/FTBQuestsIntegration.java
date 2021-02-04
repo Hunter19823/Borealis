@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 import pie.ilikepiefoo2.borealis.Borealis;
 
 public class FTBQuestsIntegration {
-
     private static final Logger LOGGER = LogManager.getLogger();
     public FTBQuestsIntegration()
     {

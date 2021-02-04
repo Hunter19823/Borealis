@@ -5,7 +5,7 @@ import com.feed_the_beast.ftbquests.quest.Quest;
 import com.feed_the_beast.ftbquests.quest.QuestFile;
 import com.feed_the_beast.ftbquests.quest.task.Task;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import pie.ilikepiefoo2.borealis.html.KubeJSHomePage;
+import pie.ilikepiefoo2.borealis.integration.kubejs.KubeJSHomePage;
 import pie.ilikepiefoo2.borealis.tag.Tag;
 
 import java.util.UUID;

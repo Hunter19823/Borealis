@@ -18,7 +18,7 @@ public class BorealisHomePageEvent extends Event
         entry = e;
     }
 
-    public BorealisServer getAuroraServer()
+    public BorealisServer getBorealisServer()
     {
         return server;
     }

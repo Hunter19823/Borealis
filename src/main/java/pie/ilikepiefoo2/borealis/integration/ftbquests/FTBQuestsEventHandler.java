@@ -26,6 +26,7 @@ import static pie.ilikepiefoo2.borealis.integration.ftbquests.FTBQuestsHomePage.
 @Mod.EventBusSubscriber(Dist.DEDICATED_SERVER)
 public class FTBQuestsEventHandler {
     private static final Logger LOGGER = LogManager.getLogger();
+
     @SubscribeEvent
     public static void homePageEvent(BorealisHomePageEvent event)
     {
@@ -57,14 +58,14 @@ public class FTBQuestsEventHandler {
                         playerUUID = UUID.fromString(event.getSplitUri()[1]);
                         entity = FTBQuestsHomePage.getInstance().getServer().getPlayerList().getPlayerByUUID(playerUUID);
                         questFile = FTBQuests.PROXY.getQuestFile(entity.world);
-                        chapter = findById(questFile, questFile.chapters,event.getSplitUri()[2]);
+                        chapter = findById(questFile, questFile.chapters, event.getSplitUri()[2]);
                         event.returnPage(new ChapterPage(playerUUID, entity, questFile,chapter));
                         break;
                     case 4:
                         playerUUID = UUID.fromString(event.getSplitUri()[1]);
                         entity = FTBQuestsHomePage.getInstance().getServer().getPlayerList().getPlayerByUUID(playerUUID);
                         questFile = FTBQuests.PROXY.getQuestFile(entity.world);
-                        chapter = findById(questFile, questFile.chapters,event.getSplitUri()[2]);
+                        chapter = findById(questFile, questFile.chapters, event.getSplitUri()[2]);
                         quest = findById(questFile, chapter.quests, event.getSplitUri()[3]);
                         event.returnPage(new QuestPage(playerUUID, entity, questFile,chapter,quest));
                         break;
@@ -75,18 +76,20 @@ public class FTBQuestsEventHandler {
                         chapter = findById(questFile, questFile.chapters,event.getSplitUri()[2]);
                         quest = findById(questFile, chapter.quests, event.getSplitUri()[3]);
                         task = findById(questFile, quest.tasks, event.getSplitUri()[4]);
-                        event.returnPage(new TaskPage(playerUUID, entity, questFile,chapter,quest,task));
+                        event.returnPage(new TaskPage(playerUUID, entity, questFile, chapter, quest, task));
                         break;
                     default:
                         LOGGER.error("Page not found: "+event.getUri());
-                        event.returnPage(new WebPageNotFound("URL not found."));
+                        event.returnPage(new WebPageNotFound(event.getUri()));
                         break;
                 }
             }catch(Exception e) {
                 LOGGER.error(e);
+                event.returnPage(new WebPageNotFound(event.getUri()));
             }
         }
     }
+
     public static <T extends QuestObject> T findById(QuestFile file, List<T> quests, String id) throws Exception
     {
         int ID = Integer.parseInt(id);

@@ -13,6 +13,7 @@ public class FTBQuestsHomePage extends HTTPWebPage {
     private static MinecraftServer server;
     public static final String homeURI = "ftbquests";
     public static final String homeURL = "/"+homeURI+"/";
+
     public FTBQuestsHomePage()
     {
         server = Borealis.getServer().getMinecraftServer();

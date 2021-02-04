@@ -8,6 +8,8 @@ import pie.ilikepiefoo2.borealis.BorealisServer;
 import pie.ilikepiefoo2.borealis.tag.Style;
 import pie.ilikepiefoo2.borealis.tag.Tag;
 
+import static pie.ilikepiefoo2.borealis.Borealis.MOD_NAME;
+
 /**
  * @author LatvianModder
  */
@@ -23,7 +25,7 @@ public class HomePage extends HTTPWebPage
     @Override
     public String getTitle()
     {
-        return "NotAurora";
+        return MOD_NAME;
     }
 
     @Override

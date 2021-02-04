@@ -3,6 +3,8 @@ package pie.ilikepiefoo2.borealis.page;
 import pie.ilikepiefoo2.borealis.tag.PairedTag;
 import pie.ilikepiefoo2.borealis.tag.Tag;
 
+import static pie.ilikepiefoo2.borealis.Borealis.MOD_NAME;
+
 /**
  * @author LatvianModder
  */
@@ -28,7 +30,7 @@ public abstract class HTTPWebPage implements WebPage
 
     public String getTitle()
     {
-        return "Aurora";
+        return MOD_NAME;
     }
 
     public String getDescription()

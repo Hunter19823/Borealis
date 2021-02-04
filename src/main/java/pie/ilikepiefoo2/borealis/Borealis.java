@@ -9,8 +9,9 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import pie.ilikepiefoo2.borealis.html.KubeJSHomePage;
+import pie.ilikepiefoo2.borealis.integration.kubejs.KubeJSHomePage;
 import pie.ilikepiefoo2.borealis.integration.ftbquests.FTBQuestsIntegration;
+import pie.ilikepiefoo2.borealis.integration.kubejs.KubeJSIntegration;
 
 import static pie.ilikepiefoo2.borealis.Borealis.MOD_ID;
 
@@ -27,9 +28,12 @@ public class Borealis {
     public Borealis()
     {
         MinecraftForge.EVENT_BUS.register(this);
+        if(ModList.get().isLoaded("kubejs"))
+        {
+            new KubeJSIntegration();
+        }
         if(ModList.get().isLoaded("ftbquests"))
         {
-            LOGGER.info("FTBQ is loaded.");
             new FTBQuestsIntegration();
         }
     }
@@ -55,7 +59,6 @@ public class Borealis {
     {
         if(server == null)
         {
-            KubeJSHomePage.loadBindings();
             LOGGER.debug("Starting up server...");
             server = new BorealisServer(port,minecraftServer);
             server.start();

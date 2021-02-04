@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.html;
+package pie.ilikepiefoo2.borealis.integration.kubejs;
 
 
 
@@ -8,12 +8,12 @@ import pie.ilikepiefoo2.borealis.tag.Tag;
 import java.lang.reflect.*;
 import java.util.*;
 
-import static pie.ilikepiefoo2.borealis.html.KubeJSHomePage.homeURL;
+import static pie.ilikepiefoo2.borealis.integration.kubejs.KubeJSHomePage.homeURL;
 
-public class ClassHTML extends HTTPWebPage {
+public class ClassPage extends HTTPWebPage {
     private final Class subject;
 
-    public ClassHTML(Class subject)
+    public ClassPage(Class subject)
     {
         this.subject = subject;
         this.addBackButton();

@@ -28,7 +28,7 @@ public class BorealisPageEvent extends Event
         splitUri = uri.split("/");
     }
 
-    public BorealisServer getAuroraServer()
+    public BorealisServer getBorealisServer()
     {
         return server;
     }

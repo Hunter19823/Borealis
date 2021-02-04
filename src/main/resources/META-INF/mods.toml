@@ -24,7 +24,7 @@ side="BOTH"
 
 [[dependencies.borealis]]
 modId="kubejs"
-mandatory = true
+mandatory = false
 versionRange = "[1603,)"
 ordering = "AFTER"
 side="BOTH"

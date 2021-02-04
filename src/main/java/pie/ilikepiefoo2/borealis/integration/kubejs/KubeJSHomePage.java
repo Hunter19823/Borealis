@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.html;
+package pie.ilikepiefoo2.borealis.integration.kubejs;
 
 import dev.latvian.kubejs.KubeJS;
 import dev.latvian.kubejs.script.ScriptManager;
@@ -6,7 +6,6 @@ import dev.latvian.kubejs.script.ScriptPack;
 import dev.latvian.mods.rhino.NativeJavaArray;
 import dev.latvian.mods.rhino.NativeJavaMap;
 import dev.latvian.mods.rhino.NativeJavaObject;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pie.ilikepiefoo2.borealis.Borealis;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
@@ -20,6 +19,7 @@ public class KubeJSHomePage extends HTTPWebPage {
     private static final Logger LOGGER = Borealis.LOGGER;
     public static final String homeURI = "kubejs_auto_docs";
     public static final String homeURL = "/"+homeURI+"/";
+    public static final Map<String,Class> knownEventJSClasses = new TreeMap<>();
 
     @Override
     public void body(Tag body)
@@ -33,12 +33,19 @@ public class KubeJSHomePage extends HTTPWebPage {
                 .a("here","/kubejs_auto_docs/dev.latvian.kubejs.event.EventsJS")
                 .text(". Due to technical issues I will need to manually add events to this page.");
          */
+
         body.br();
-        addTable(body,"Global",global);
+        addTable(body,"KubeJS Events",knownEventJSClasses);
         body.br();
-        addTable(body,"Startup",startup);
-        body.br();
-        addTable(body,"Client",client);
+        addTable(body,"Global Objects",global);
+        if(startup.size() > 0) {
+            body.br();
+            addTable(body, "Startup Objects", startup);
+        }
+        if(client.size() > 0) {
+            body.br();
+            addTable(body, "Client Objects", client);
+        }
         /*
         Tag defaultBindings = body.table();
         Tag header = defaultBindings.tr();
