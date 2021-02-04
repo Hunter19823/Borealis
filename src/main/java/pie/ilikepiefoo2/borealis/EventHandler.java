@@ -5,12 +5,15 @@ package pie.ilikepiefoo2.borealis;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import pie.ilikepiefoo2.borealis.html.ClassHTML;
-import pie.ilikepiefoo2.borealis.html.DocumentationHomePage;
+import pie.ilikepiefoo2.borealis.html.KubeJSHomePage;
 import pie.ilikepiefoo2.borealis.page.HomePageEntry;
 import pie.ilikepiefoo2.borealis.page.WebPage;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static pie.ilikepiefoo2.borealis.html.KubeJSHomePage.homeURI;
+import static pie.ilikepiefoo2.borealis.html.KubeJSHomePage.homeURL;
 
 
 @Mod.EventBusSubscriber
@@ -20,16 +23,16 @@ public class EventHandler {
     @SubscribeEvent
     public static void homePageEvent(BorealisHomePageEvent event)
     {
-        event.add(new HomePageEntry("KubeJS Documentaion","kubejs_auto_docs","https://kubejs.latvian.dev/logo_title.png"));
+        event.add(new HomePageEntry("KubeJS Documentaion",homeURI,"https://kubejs.latvian.dev/logo_title.png"));
     }
 
     @SubscribeEvent
     public static void onPageEvent(BorealisPageEvent event)
     {
-        if(event.getSplitUri()[0].equals("kubejs_auto_docs")) {
+        if(event.getSplitUri()[0].equals(homeURI)) {
             if (event.getSplitUri().length == 1)
             {
-                event.returnPage(DocumentationHomePage.getInstance());
+                event.returnPage(KubeJSHomePage.getInstance());
             }
             else
             {

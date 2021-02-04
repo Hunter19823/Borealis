@@ -109,6 +109,7 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven { url "https://maven.latmod.com/" } //FTB GUI Library, Item Filters, FTB Teams, KubeJS
 }
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
@@ -120,7 +121,12 @@ dependencies {
     //compile "curse.maven:kubejs-238086:3189113"
 
     compile (fg.deobf("curse.maven:${kubejs}:${kubejs_version}"))
-    compile (fg.deobf(("curse.maven:${rhino}:${rhino_version}")))
+    compile (fg.deobf("curse.maven:${rhino}:${rhino_version}"))
+    compileOnly (fg.deobf("curse.maven:${ftbquests}:${ftbquests_version}"))
+    compileOnly (project.dependencies.create("com.feed_the_beast.mods:ftb-gui-library:${ftb_gui_library_version}") {
+        transitive = false
+        changing = true
+    })
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"

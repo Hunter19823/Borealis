@@ -9,6 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.*;
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import pie.ilikepiefoo2.borealis.page.*;
 
@@ -27,14 +28,21 @@ public class BorealisServer
     private ChannelFuture channel;
     private final EventLoopGroup masterGroup;
     private final EventLoopGroup slaveGroup;
+    private final MinecraftServer minecraftServer;
 
     private byte[] iconBytes = null;
 
-    public BorealisServer(int p)
+    public BorealisServer(int port, MinecraftServer minecraftServer)
     {
-        port = p;
+        this.port = port;
+        this.minecraftServer = minecraftServer;
         masterGroup = new NioEventLoopGroup();
         slaveGroup = new NioEventLoopGroup();
+    }
+
+    public MinecraftServer getMinecraftServer()
+    {
+        return minecraftServer;
     }
 
     void start()

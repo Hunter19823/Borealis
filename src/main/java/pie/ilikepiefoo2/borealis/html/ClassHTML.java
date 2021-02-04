@@ -8,6 +8,8 @@ import pie.ilikepiefoo2.borealis.tag.Tag;
 import java.lang.reflect.*;
 import java.util.*;
 
+import static pie.ilikepiefoo2.borealis.html.KubeJSHomePage.homeURL;
+
 public class ClassHTML extends HTTPWebPage {
     private final Class subject;
 
@@ -22,8 +24,7 @@ public class ClassHTML extends HTTPWebPage {
     {
         body.img("https://kubejs.latvian.dev/logo_title.png").style("height", "7em");
         body.br();
-        body.h1("").a("KubeJS Documentation", "/kubejs_auto_docs");
-
+        body.h1("").a("KubeJS Documentation", homeURL);
         body.br();
         Tag classTag = body.h3(this.subject.toGenericString());
         if(this.subject.getSuperclass() != null)
@@ -54,7 +55,6 @@ public class ClassHTML extends HTTPWebPage {
         }
 
         body.br();
-
         Tag fieldTable = body.table();
         firstRow = fieldTable.tr();
         firstRow.th().a("Fields","#fields");
@@ -68,7 +68,6 @@ public class ClassHTML extends HTTPWebPage {
         }
 
         body.br();
-
         Tag methodTable = body.table();
         firstRow = methodTable.tr();
         firstRow.th().a("Methods","#methods");
@@ -86,7 +85,7 @@ public class ClassHTML extends HTTPWebPage {
 
     public static Tag linkType(Tag previous,Class<?> aclass){
         if(!aclass.isPrimitive() && !aclass.isArray()){
-            previous.a(" "+aclass.getSimpleName()+" ","/kubejs_auto_docs/"+aclass.getName());
+            previous.a(" "+aclass.getSimpleName()+" ",homeURL+aclass.getName());
         }else{
             previous.text(" "+aclass.getSimpleName()+" ");
         }
@@ -95,7 +94,7 @@ public class ClassHTML extends HTTPWebPage {
 
     public static Tag linkClass(Tag previous,Class<?> aclass){
         if(!aclass.isPrimitive() && !aclass.isArray()){
-            previous.a(" "+aclass.getName()+" ","/kubejs_auto_docs/"+aclass.getName());
+            previous.a(" "+aclass.getName()+" ",homeURL+aclass.getName());
         }else{
             previous.text(" "+aclass.getSimpleName()+" ");
         }

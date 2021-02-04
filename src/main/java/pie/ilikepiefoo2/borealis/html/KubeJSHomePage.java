@@ -1,7 +1,5 @@
 package pie.ilikepiefoo2.borealis.html;
 
-
-
 import dev.latvian.kubejs.KubeJS;
 import dev.latvian.kubejs.script.ScriptManager;
 import dev.latvian.kubejs.script.ScriptPack;
@@ -10,6 +8,7 @@ import dev.latvian.mods.rhino.NativeJavaMap;
 import dev.latvian.mods.rhino.NativeJavaObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import pie.ilikepiefoo2.borealis.Borealis;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.tag.Tag;
 
@@ -17,10 +16,10 @@ import pie.ilikepiefoo2.borealis.tag.Tag;
 
 import java.util.*;
 
-
-
-public class DocumentationHomePage extends HTTPWebPage {
-    private static final Logger LOGGER = LogManager.getLogger();
+public class KubeJSHomePage extends HTTPWebPage {
+    private static final Logger LOGGER = Borealis.LOGGER;
+    public static final String homeURI = "kubejs_auto_docs";
+    public static final String homeURL = "/"+homeURI+"/";
 
     @Override
     public void body(Tag body)
@@ -28,7 +27,7 @@ public class DocumentationHomePage extends HTTPWebPage {
         LOGGER.debug("Creating Documentation Home Page now...");
         body.img("https://kubejs.latvian.dev/logo_title.png").style("height", "7em");
         body.br();
-        body.h1("").a("KubeJS Documentation", "/kubejs_auto_docs");
+        body.h1("").a("KubeJS Documentation", homeURL);
         /*
         body.text("This section is a WIP. Try starting ")
                 .a("here","/kubejs_auto_docs/dev.latvian.kubejs.event.EventsJS")
@@ -36,7 +35,9 @@ public class DocumentationHomePage extends HTTPWebPage {
          */
         body.br();
         addTable(body,"Global",global);
+        body.br();
         addTable(body,"Startup",startup);
+        body.br();
         addTable(body,"Client",client);
         /*
         Tag defaultBindings = body.table();
@@ -59,12 +60,12 @@ public class DocumentationHomePage extends HTTPWebPage {
 
 
     }
-    private static DocumentationHomePage instance;
-    public static DocumentationHomePage getInstance()
+    private static KubeJSHomePage instance;
+    public static KubeJSHomePage getInstance()
     {
         if(instance == null)
         {
-            instance = new DocumentationHomePage();
+            instance = new KubeJSHomePage();
         }
         return instance;
     }
@@ -108,7 +109,7 @@ public class DocumentationHomePage extends HTTPWebPage {
             Class currentClass = classMap.get(key);
             Tag row = table.tr();
             row.td().text(key);
-            row.td().a(currentClass.getName(),"/kubejs_auto_docs/"+currentClass.getName());
+            row.td().a(currentClass.getName(),homeURL+currentClass.getName());
         }
         previous.br();
     }

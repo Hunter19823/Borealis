@@ -26,5 +26,12 @@ side="BOTH"
 modId="kubejs"
 mandatory = true
 versionRange = "[1603,)"
-ordering = "NONE"
+ordering = "AFTER"
+side="BOTH"
+
+[[dependencies.ftbquests]]
+modId="ftbquests"
+mandatory = false
+versionRange = "[1604,)"
+ordering = "AFTER"
 side="BOTH"
