@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.notaurora.page;
+package pie.ilikepiefoo2.borealis.page;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package pie.ilikepiefoo2.notaurora.tag;
+package pie.ilikepiefoo2.borealis.tag;
 
-import pie.ilikepiefoo2.notaurora.page.WebPage;
+import pie.ilikepiefoo2.borealis.page.WebPage;
 
 /**
  * @author LatvianModder

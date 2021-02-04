@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.notaurora;
+package pie.ilikepiefoo2.borealis;
 
 
 
@@ -10,7 +10,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.*;
 import net.minecraftforge.common.MinecraftForge;
-import pie.ilikepiefoo2.notaurora.page.*;
+import pie.ilikepiefoo2.borealis.page.*;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -21,7 +21,7 @@ import java.io.StringWriter;
  * Modified by Pie.
  * Original: https://github.com/LatvianModder/Aurora/blob/master/src/main/java/dev/latvian/mods/aurora/AuroraServer.java
  */
-public class NotAuroraServer
+public class BorealisServer
 {
     private final int port;
     private ChannelFuture channel;
@@ -30,7 +30,7 @@ public class NotAuroraServer
 
     private byte[] iconBytes = null;
 
-    public NotAuroraServer(int p)
+    public BorealisServer(int p)
     {
         port = p;
         masterGroup = new NioEventLoopGroup();
@@ -129,7 +129,7 @@ public class NotAuroraServer
         {
             try
             {
-                AuroraPageEvent event = new AuroraPageEvent(this, request, uri);
+                BorealisPageEvent event = new BorealisPageEvent(this, request, uri);
                 MinecraftForge.EVENT_BUS.post(event);
                 page = event.getPage();
 

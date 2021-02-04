@@ -1,10 +1,7 @@
-package pie.ilikepiefoo2.notaurora.page;
+package pie.ilikepiefoo2.borealis.page;
 
-import pie.ilikepiefoo2.notaurora.tag.PairedTag;
-import pie.ilikepiefoo2.notaurora.tag.Tag;
-
-import java.util.ArrayList;
-import java.util.List;
+import pie.ilikepiefoo2.borealis.tag.PairedTag;
+import pie.ilikepiefoo2.borealis.tag.Tag;
 
 /**
  * @author LatvianModder

@@ -1,27 +1,28 @@
 modLoader="javafml"
 loaderVersion="[33,)"
-issueTrackerURL = "https://github.com/Hunter19823/NotAurora/issues"
+issueTrackerURL = "https://github.com/Hunter19823/Borealis/issues"
 license = "All Rights Reserved"
 
 [[mods]]
-modId="notaurora"
+modId="borealis"
 version="${file.jarVersion}"
-displayName="Not Aurora"
+displayName="Borealis"
 authors="ILIKEPIEFOO2"
 description='''
-Tottally not an updated verison of Aurora.
+An updated version of the 1.12.2 mod Aurora specifically
+designed to provide documentation for kubejs.
 (Seriously though credit goes to Latvian Modder aka
-the other of Aurora and KubeJS)
+the author of both Aurora and KubeJS)
 '''
 
-[[dependencies.notaurora]]
+[[dependencies.borealis]]
 modId="forge"
 mandatory = true
 versionRange = "[33,)"
 ordering = "NONE"
 side="BOTH"
 
-[[dependencies.notaurora]]
+[[dependencies.borealis]]
 modId="kubejs"
 mandatory = true
 versionRange = "[1603,)"

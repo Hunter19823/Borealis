@@ -1,21 +1,21 @@
-package pie.ilikepiefoo2.notaurora.page;
+package pie.ilikepiefoo2.borealis.page;
 
 
 
 import net.minecraftforge.common.MinecraftForge;
-import pie.ilikepiefoo2.notaurora.AuroraHomePageEvent;
-import pie.ilikepiefoo2.notaurora.NotAuroraServer;
-import pie.ilikepiefoo2.notaurora.tag.Style;
-import pie.ilikepiefoo2.notaurora.tag.Tag;
+import pie.ilikepiefoo2.borealis.BorealisHomePageEvent;
+import pie.ilikepiefoo2.borealis.BorealisServer;
+import pie.ilikepiefoo2.borealis.tag.Style;
+import pie.ilikepiefoo2.borealis.tag.Tag;
 
 /**
  * @author LatvianModder
  */
 public class HomePage extends HTTPWebPage
 {
-    public final NotAuroraServer server;
+    public final BorealisServer server;
 
-    public HomePage(NotAuroraServer s)
+    public HomePage(BorealisServer s)
     {
         server = s;
     }
@@ -52,7 +52,7 @@ public class HomePage extends HTTPWebPage
     public void body(Tag body)
     {
         HomePageEntry entry = new HomePageEntry(getTitle(), "", getIcon());
-        MinecraftForge.EVENT_BUS.post(new AuroraHomePageEvent(server, entry));
+        MinecraftForge.EVENT_BUS.post(new BorealisHomePageEvent(server, entry));
         entry.entries.sort(null);
         addEntries(body.ol().style("width", "max-content").style("margin", "auto"), entry, "");
     }

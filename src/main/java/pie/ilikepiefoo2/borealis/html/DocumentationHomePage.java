@@ -1,26 +1,22 @@
-package pie.ilikepiefoo2.notaurora.html;
+package pie.ilikepiefoo2.borealis.html;
 
 
 
 import dev.latvian.kubejs.KubeJS;
 import dev.latvian.kubejs.script.ScriptManager;
 import dev.latvian.kubejs.script.ScriptPack;
-import dev.latvian.kubejs.script.TypedDynamicFunction;
 import dev.latvian.mods.rhino.NativeJavaArray;
 import dev.latvian.mods.rhino.NativeJavaMap;
 import dev.latvian.mods.rhino.NativeJavaObject;
-import dev.latvian.mods.rhino.ScriptableObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import pie.ilikepiefoo2.notaurora.page.HTTPWebPage;
-import pie.ilikepiefoo2.notaurora.tag.Tag;
+import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
+import pie.ilikepiefoo2.borealis.tag.Tag;
 
 
 
 import java.util.*;
 
-import static dev.latvian.mods.rhino.ScriptableObject.getPropertyIds;
-import static pie.ilikepiefoo2.notaurora.html.ClassHTML.linkClass;
 
 
 public class DocumentationHomePage extends HTTPWebPage {
@@ -33,9 +29,11 @@ public class DocumentationHomePage extends HTTPWebPage {
         body.img("https://kubejs.latvian.dev/logo_title.png").style("height", "7em");
         body.br();
         body.h1("").a("KubeJS Documentation", "/kubejs_auto_docs");
+        /*
         body.text("This section is a WIP. Try starting ")
                 .a("here","/kubejs_auto_docs/dev.latvian.kubejs.event.EventsJS")
                 .text(". Due to technical issues I will need to manually add events to this page.");
+         */
         body.br();
         addTable(body,"Global",global);
         addTable(body,"Startup",startup);

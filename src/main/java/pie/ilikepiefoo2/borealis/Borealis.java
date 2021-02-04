@@ -1,25 +1,24 @@
-package pie.ilikepiefoo2.notaurora;
+package pie.ilikepiefoo2.borealis;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import pie.ilikepiefoo2.notaurora.html.DocumentationHomePage;
+import pie.ilikepiefoo2.borealis.html.DocumentationHomePage;
 
 @Mod("notaurora")
-public class NotAurora {
+public class Borealis {
     private static final Logger LOGGER = LogManager.getLogger();
-    public static final String MOD_ID = "notaurora";
-    public static final String MOD_NAME = "NotAurora";
+    public static final String MOD_ID = "borealis";
+    public static final String MOD_NAME = "Borealis";
     public static final int port = 48574;
 
-    private static NotAuroraServer server;
+    private static BorealisServer server;
 
-    public NotAurora()
+    public Borealis()
     {
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -41,7 +40,7 @@ public class NotAurora {
         {
             DocumentationHomePage.loadBindings();
             LOGGER.debug("Starting up server...");
-            server = new NotAuroraServer(port);
+            server = new BorealisServer(port);
             server.start();
         }
     }

@@ -1,7 +1,7 @@
-package pie.ilikepiefoo2.notaurora.page;
+package pie.ilikepiefoo2.borealis.page;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
-import pie.ilikepiefoo2.notaurora.tag.Tag;
+import pie.ilikepiefoo2.borealis.tag.Tag;
 
 /**
  * @author LatvianModder

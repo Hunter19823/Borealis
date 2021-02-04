@@ -1,9 +1,9 @@
-package pie.ilikepiefoo2.notaurora.html;
+package pie.ilikepiefoo2.borealis.html;
 
 
 
-import pie.ilikepiefoo2.notaurora.page.HTTPWebPage;
-import pie.ilikepiefoo2.notaurora.tag.Tag;
+import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
+import pie.ilikepiefoo2.borealis.tag.Tag;
 
 import java.lang.reflect.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.notaurora.tag;
+package pie.ilikepiefoo2.borealis.tag;
 
 import net.minecraft.util.text.TextFormatting;
 

@@ -1,10 +1,10 @@
-package pie.ilikepiefoo2.notaurora;
+package pie.ilikepiefoo2.borealis;
 
 
 import io.netty.handler.codec.http.FullHttpRequest;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.eventbus.api.Event;
-import pie.ilikepiefoo2.notaurora.page.WebPage;
+import pie.ilikepiefoo2.borealis.page.WebPage;
 
 import javax.annotation.Nullable;
 
@@ -12,15 +12,15 @@ import javax.annotation.Nullable;
  * @author LatvianModder
  */
 @Cancelable
-public class AuroraPageEvent extends Event
+public class BorealisPageEvent extends Event
 {
-    private final NotAuroraServer server;
+    private final BorealisServer server;
     private final FullHttpRequest request;
     private final String uri;
     private final String[] splitUri;
     private WebPage page;
 
-    public AuroraPageEvent(NotAuroraServer s, FullHttpRequest r, String u)
+    public BorealisPageEvent(BorealisServer s, FullHttpRequest r, String u)
     {
         server = s;
         request = r;
@@ -28,7 +28,7 @@ public class AuroraPageEvent extends Event
         splitUri = uri.split("/");
     }
 
-    public NotAuroraServer getAuroraServer()
+    public BorealisServer getAuroraServer()
     {
         return server;
     }
