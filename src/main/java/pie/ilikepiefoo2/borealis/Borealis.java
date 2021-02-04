@@ -9,7 +9,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pie.ilikepiefoo2.borealis.html.DocumentationHomePage;
 
-@Mod("notaurora")
+import static pie.ilikepiefoo2.borealis.Borealis.MOD_ID;
+
+@Mod(MOD_ID)
 public class Borealis {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "borealis";
