@@ -7,12 +7,9 @@ license = "All Rights Reserved"
 modId="borealis"
 version="${file.jarVersion}"
 displayName="Borealis"
-authors="ILIKEPIEFOO2"
+authors="Current: ILIKEPIEFOO2 Original: Latvian Modder"
 description='''
-An updated version of the 1.12.2 mod Aurora specifically
-designed to provide documentation for kubejs.
-(Seriously though credit goes to Latvian Modder aka
-the author of both Aurora and KubeJS)
+An updated version of the 1.12.2 mod Aurora.
 '''
 
 [[dependencies.borealis]]
@@ -20,18 +17,4 @@ modId="forge"
 mandatory = true
 versionRange = "[33,)"
 ordering = "NONE"
-side="BOTH"
-
-[[dependencies.borealis]]
-modId="kubejs"
-mandatory = false
-versionRange = "[1603,)"
-ordering = "AFTER"
-side="BOTH"
-
-[[dependencies.ftbquests]]
-modId="ftbquests"
-mandatory = false
-versionRange = "[1604,)"
-ordering = "AFTER"
 side="BOTH"
