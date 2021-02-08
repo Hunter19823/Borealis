@@ -7,6 +7,7 @@ license = "All Rights Reserved"
 modId="borealis"
 version="${file.jarVersion}"
 displayName="Borealis"
+logoFile="borealis_icon.png"
 authors="Current: ILIKEPIEFOO2 Original: Latvian Modder"
 description='''
 An updated version of the 1.12.2 mod Aurora.
