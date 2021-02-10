@@ -4,18 +4,18 @@ issueTrackerURL = "https://github.com/Hunter19823/Borealis/issues"
 license = "All Rights Reserved"
 
 [[mods]]
-modId="borealis"
-version="${file.jarVersion}"
-displayName="Borealis"
-logoFile="borealis_icon.png"
-authors="Current: ILIKEPIEFOO2 Original: Latvian Modder"
-description='''
-An updated version of the 1.12.2 mod Aurora.
-'''
+    modId="borealis"
+    version="${file.jarVersion}"
+    displayName="Borealis"
+    logoFile="borealis_icon.png"
+    authors="Current: ILIKEPIEFOO2 Original: Latvian Modder"
+    description='''
+    An updated version of the 1.12.2 mod Aurora.
+    '''
 
 [[dependencies.borealis]]
-modId="forge"
-mandatory = true
-versionRange = "[33,)"
-ordering = "NONE"
-side="BOTH"
+    modId="forge"
+    mandatory = true
+    versionRange = "[33,)"
+    ordering = "NONE"
+    side="BOTH"
