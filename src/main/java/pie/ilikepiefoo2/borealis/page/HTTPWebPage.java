@@ -22,7 +22,7 @@ public abstract class HTTPWebPage implements WebPage
 
         if (addBackButton())
         {
-            body.h3("").a("< Back to Aurora index page", "/");
+            body.h3("").a("< Back to Borealis index page", "/");
         }
 
         return http.getContent();
