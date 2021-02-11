@@ -111,6 +111,14 @@ public abstract class Tag extends TagBase
         return this;
     }
 
+    public Tag addClasses(String[] classes)
+    {
+        for(String str : classes){
+            addClass(str);
+        }
+        return this;
+    }
+
     public <T extends TagBase> T append(T child)
     {
         return child;
@@ -141,6 +149,11 @@ public abstract class Tag extends TagBase
     public Tag unpaired(String tag)
     {
         return append(new UnpairedTag(tag));
+    }
+
+    public Tag script(String code)
+    {
+        return append(new ScriptTag(code));
     }
 
     public Tag h1(String text)
