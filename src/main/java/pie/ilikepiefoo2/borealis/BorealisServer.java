@@ -11,6 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
+import org.apache.logging.log4j.LogManager;
 import pie.ilikepiefoo2.borealis.page.*;
 
 import java.io.PrintWriter;
@@ -128,6 +129,8 @@ public class BorealisServer
         {
             uri = uri.substring(0, uri.length() - 1);
         }
+
+        //LogManager.getLogger().debug("Page Requested: \""+uri+"\"");
 
         if (uri.isEmpty())
         {

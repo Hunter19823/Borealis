@@ -7,6 +7,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
  */
 public interface WebPage
 {
+
     String getContent();
 
     default String getContentType()
@@ -23,4 +24,5 @@ public interface WebPage
     {
         return PageType.ENABLED;
     }
+
 }

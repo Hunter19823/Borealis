@@ -3,7 +3,9 @@ package pie.ilikepiefoo2.borealis.defaultpages.util;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
+import pie.ilikepiefoo2.borealis.page.PageType;
 import pie.ilikepiefoo2.borealis.tag.Style;
 import pie.ilikepiefoo2.borealis.tag.StyleSelector;
 import pie.ilikepiefoo2.borealis.tag.Tag;
@@ -21,6 +23,12 @@ public class JSONTreeViewPage extends HTTPWebPage {
 
     public JSONTreeViewPage(JsonElement object){
         this.object = object;
+    }
+
+    @Override
+    public PageType getPageType()
+    {
+        return BorealisConfigHandler.COMMON.jsonUtilPage.get();
     }
 
     @Override
@@ -167,7 +175,6 @@ public class JSONTreeViewPage extends HTTPWebPage {
     private static Tag spanKey(Tag previous, String key, String value){
         return previous.span(String.format("%s: %s",key,value));
     }
-
     public static void main(String[] args)
     {
         JsonObject obj = new JsonObject();

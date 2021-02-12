@@ -14,6 +14,7 @@ import static pie.ilikepiefoo2.borealis.defaultpages.minecraft.MinecraftPageHand
  */
 public class PlayerListPage extends HTTPWebPage {
     private final MinecraftServer server;
+    public static final String URI = "player_list";
 
     public PlayerListPage(MinecraftServer server)
     {

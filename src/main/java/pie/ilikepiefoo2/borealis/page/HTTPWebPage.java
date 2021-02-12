@@ -8,24 +8,25 @@ import static pie.ilikepiefoo2.borealis.Borealis.MOD_NAME;
 /**
  * @author LatvianModder
  */
-public abstract class HTTPWebPage implements WebPage
+public abstract class HTTPWebPage extends Dirty implements WebPage
 {
     @Override
     public String getContent()
     {
-        Tag http = new PairedTag("html");
-        Tag head = http.paired("head");
-        head.unpaired("meta").attr("charset", "UTF-8");
-        head(head);
-        Tag body = http.paired("body");
-        body(body);
+        if(isDirty()) {
+            Tag http = new PairedTag("html");
+            Tag head = http.paired("head");
+            head.unpaired("meta").attr("charset", "UTF-8");
+            head(head);
+            Tag body = http.paired("body");
+            body(body);
 
-        if (addBackButton())
-        {
-            body.h3("").a("< Back to Borealis index page", "/");
+            if (addBackButton()) {
+                body.h3("").a("< Back to "+MOD_NAME+" index page", "/");
+            }
+            cache(http.getContent(), isAlwaysDirty());
         }
-
-        return http.getContent();
+        return cachedContent;
     }
 
     public String getTitle()

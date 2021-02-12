@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.util;
 
 
 import net.minecraftforge.fml.ModList;
@@ -19,6 +19,7 @@ import static pie.ilikepiefoo2.borealis.defaultpages.minecraft.MinecraftPageHand
 public class ModListPage extends HTTPWebPage
 {
     private final Set<String> excludedMods;
+    public static final String URI = "modlist";
 
     public ModListPage(Set<String> set)
     {
@@ -70,7 +71,7 @@ public class ModListPage extends HTTPWebPage
                 row = table.tr();
                 Tag t = row.td();
                 t.span(String.valueOf(++i), "num");
-                t.a(info.getNamespace(), "/modlist/" + info.getModId());
+                t.a(info.getNamespace(), URI+"/" + info.getModId());
                 row.td().text(info.getVersion());
             }
         }

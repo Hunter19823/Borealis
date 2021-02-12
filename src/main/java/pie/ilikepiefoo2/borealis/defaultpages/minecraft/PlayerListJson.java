@@ -15,6 +15,7 @@ import pie.ilikepiefoo2.borealis.page.PageType;
 public class PlayerListJson extends JsonWebPage
 {
     private final MinecraftServer server;
+    public static final String URI = "player_list.json";
 
     public PlayerListJson(MinecraftServer s)
     {

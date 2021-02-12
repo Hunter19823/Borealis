@@ -3,6 +3,7 @@ package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
 import net.minecraftforge.forgespi.language.IModInfo;
 import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
+import pie.ilikepiefoo2.borealis.defaultpages.util.ModListPage;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;
 import pie.ilikepiefoo2.borealis.tag.Tag;
@@ -43,6 +44,8 @@ public class ModPage extends HTTPWebPage
     public void body(Tag body)
     {
         addTitleIcon(body);
+        body.br();
+        body.h1("").a("","minecraft/"+ ModListPage.URI);
         body.h1(mod.getDisplayName()).text(" ").span(mod.getVersion().toString(), "other");
 
         if (!mod.getDescription().isEmpty())

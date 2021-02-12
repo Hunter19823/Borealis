@@ -12,11 +12,11 @@ import pie.ilikepiefoo2.borealis.page.PageType;
 /**
  * @author LatvianModder
  */
-public class WorldInfoJSON extends JsonWebPage {
-
+public class WorldInfoJson extends JsonWebPage {
     private final MinecraftServer server;
+    public static final String URI = "world_info.json";
 
-    public WorldInfoJSON(MinecraftServer server)
+    public WorldInfoJson(MinecraftServer server)
     {
         this.server = server;
     }

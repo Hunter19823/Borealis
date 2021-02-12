@@ -10,6 +10,8 @@ import static pie.ilikepiefoo2.borealis.defaultpages.util.JSONTreeViewPage.addTr
 
 public class JSONPage extends HTTPWebPage {
 
+    public static final String URI = "json";
+
     @Override
     public void head(Tag head)
     {
