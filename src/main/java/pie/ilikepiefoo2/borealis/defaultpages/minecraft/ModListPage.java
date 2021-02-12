@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
 
 import net.minecraftforge.fml.ModList;
@@ -10,6 +10,8 @@ import pie.ilikepiefoo2.borealis.tag.Style;
 import pie.ilikepiefoo2.borealis.tag.Tag;
 
 import java.util.Set;
+
+import static pie.ilikepiefoo2.borealis.defaultpages.minecraft.MinecraftPageHandler.addTitleIcon;
 
 /**
  * @author LatvianModder
@@ -52,6 +54,7 @@ public class ModListPage extends HTTPWebPage
     @Override
     public void body(Tag body)
     {
+        addTitleIcon(body);
         Tag table = body.table();
         Tag row = table.tr();
         row.th().text("Mod List");

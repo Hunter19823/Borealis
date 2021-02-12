@@ -23,6 +23,7 @@ public final class BorealisConfigHandler {
         public final ForgeConfigSpec.EnumValue<PageType> playerListPage;
         public final ForgeConfigSpec.EnumValue<PageType> playerListJSON;
         public final ForgeConfigSpec.EnumValue<PageType> worldInfoJSON;
+        public final ForgeConfigSpec.EnumValue<PageType> jsonUtilPage;
 
         public Common(ForgeConfigSpec.Builder builder)
         {
@@ -51,6 +52,11 @@ public final class BorealisConfigHandler {
                     .comment("Enable/Disable PlayerList Page.")
                     .defineEnum("playerListPage",PageType.ENABLED,  PageType.values());
             builder.pop();
+            builder.push("jsonUtilPage");
+            jsonUtilPage = builder
+                    .comment("Enable/Disable jsonUtil Page.")
+                    .defineEnum("jsonUtilPage",PageType.ENABLED,   PageType.values());
+            builder.pop();
             builder.push("playerListJSON");
             playerListJSON = builder
                     .comment("Enable/Disable PlayerList JSON.")
@@ -72,8 +78,6 @@ public final class BorealisConfigHandler {
         COMMON_SPEC = specPair.getRight();
         COMMON = specPair.getLeft();
     }
-
-    public static Set<ResourceLocation> blacklistedMods;
 
     public static void onConfigLoad()
     {

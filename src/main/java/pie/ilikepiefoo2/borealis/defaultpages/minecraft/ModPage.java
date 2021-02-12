@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
 
 import net.minecraftforge.forgespi.language.IModInfo;
@@ -6,6 +6,8 @@ import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;
 import pie.ilikepiefoo2.borealis.tag.Tag;
+
+import static pie.ilikepiefoo2.borealis.defaultpages.minecraft.MinecraftPageHandler.addTitleIcon;
 
 /**
  * @author LatvianModder
@@ -40,6 +42,7 @@ public class ModPage extends HTTPWebPage
     @Override
     public void body(Tag body)
     {
+        addTitleIcon(body);
         body.h1(mod.getDisplayName()).text(" ").span(mod.getVersion().toString(), "other");
 
         if (!mod.getDescription().isEmpty())

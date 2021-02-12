@@ -1,11 +1,10 @@
-package pie.ilikepiefoo2.borealis.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.server.ServerWorld;
-import org.apache.logging.log4j.LogManager;
 import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.JsonWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;

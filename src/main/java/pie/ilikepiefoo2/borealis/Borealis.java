@@ -11,7 +11,7 @@ import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import pie.ilikepiefoo2.borealis.minecraft.BorealisMinecraftHandler;
+import pie.ilikepiefoo2.borealis.defaultpages.DefaultBorealisHandler;
 
 import static pie.ilikepiefoo2.borealis.Borealis.MOD_ID;
 
@@ -28,7 +28,7 @@ public class Borealis {
         MinecraftForge.EVENT_BUS.register(this);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BorealisConfigHandler.COMMON_SPEC);
-        MinecraftForge.EVENT_BUS.register(new BorealisMinecraftHandler());
+        MinecraftForge.EVENT_BUS.register(new DefaultBorealisHandler());
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfig.Loading e) -> BorealisConfigHandler.onConfigLoad());
         FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfig.Reloading e) -> BorealisConfigHandler.onConfigLoad());

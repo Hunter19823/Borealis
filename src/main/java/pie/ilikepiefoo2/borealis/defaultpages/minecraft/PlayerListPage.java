@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.server.MinecraftServer;
@@ -6,6 +6,8 @@ import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;
 import pie.ilikepiefoo2.borealis.tag.Tag;
+
+import static pie.ilikepiefoo2.borealis.defaultpages.minecraft.MinecraftPageHandler.addTitleIcon;
 
 /**
  * @author LatvianModder
@@ -39,6 +41,7 @@ public class PlayerListPage extends HTTPWebPage {
     @Override
     public void body(Tag body)
     {
+        addTitleIcon(body);
         Tag playerTable = body.table().addClass("player_table");
         for (ServerPlayerEntity player : server.getPlayerList().getPlayers())
         {

@@ -1,9 +1,8 @@
-package pie.ilikepiefoo2.borealis.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.util;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.tag.Style;
 import pie.ilikepiefoo2.borealis.tag.StyleSelector;
@@ -13,7 +12,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.Set;
+
+import static pie.ilikepiefoo2.borealis.defaultpages.minecraft.MinecraftPageHandler.addTitleIcon;
 
 public class JSONTreeViewPage extends HTTPWebPage {
 
@@ -27,8 +27,11 @@ public class JSONTreeViewPage extends HTTPWebPage {
     public void head(Tag head)
     {
         super.head(head);
+        addTreeViewStyle(head.style());
+    }
+
+    public static void addTreeViewStyle(Style style){
         StyleSelector selector;
-        Style style = head.style();
         selector = style.add("ul");
         selector.set("list-style-type","inherit");
 
@@ -88,6 +91,7 @@ public class JSONTreeViewPage extends HTTPWebPage {
     @Override
     public void body(Tag body)
     {
+        addTitleIcon(body);
         recursiveAdd(body.ul().addClass("myUL"),"View",this.object);
         /*
         Tag tree = body.ul();
@@ -158,7 +162,6 @@ public class JSONTreeViewPage extends HTTPWebPage {
             span = spanKey(li,key,"null");
             span.addClass("null");
             li.addClass("nulls");
-
         }
     }
     private static Tag spanKey(Tag previous, String key, String value){

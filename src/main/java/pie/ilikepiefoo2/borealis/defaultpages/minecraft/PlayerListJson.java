@@ -1,4 +1,4 @@
-package pie.ilikepiefoo2.borealis.minecraft;
+package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
