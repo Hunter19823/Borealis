@@ -16,13 +16,14 @@ public class UtilPageHandler {
     {
         event.add(new HomePageEntry("Mod List", ModListPage.URI, "https://i.imgur.com/yQNrfg7.png"));
         event.add(new HomePageEntry("JSON Viewer", JSONPage.URI, "https://i.imgur.com/a5dkvFu.png"));
+        //event.add(new HomePageEntry("JSON Viewer", JSONPage.URI, "https://i.imgur.com/a5dkvFu.png"));
     }
 
 
     public static void onPageEvent(BorealisPageEvent event){
         if (event.checkPath(JSONPage.URI))
         {
-            event.returnPage(WebCache.getOrCreate(JSONPage.URI, s -> new JSONPage()));
+            event.cachePage(JSONPage.URI, s -> new JSONPage());
         } else if (event.checkPath(ModListPage.URI, "*"))
         {
             HashSet<String> set = new HashSet(Arrays.asList(BorealisConfigHandler.COMMON.blacklistedMods.get()));
@@ -31,13 +32,14 @@ public class UtilPageHandler {
             {
                 if (ModList.get().isLoaded(event.getSplitUri()[1]))
                 {
-                    event.returnPage(WebCache.getOrCreate(ModListPage.URI+"/"+event.getSplitUri()[1], s -> new ModPage(ModList.get().getModContainerById(event.getSplitUri()[1]).get().getModInfo()).neverDirty()));
+                    event.cachePage(ModListPage.URI+"/"+event.getSplitUri()[1], s -> new ModPage(ModList.get().getModContainerById(event.getSplitUri()[1]).get().getModInfo()).neverDirty());
                 }
             }
         }
         else if (event.checkPath(ModListPage.URI))
         {
-            event.returnPage(WebCache.getOrCreate(ModListPage.URI, s -> new ModListPage(new HashSet<>(BorealisConfigHandler.COMMON.blacklistedMods.get())).neverDirty()));
+            event.cachePage(ModListPage.URI, s -> new ModListPage(new HashSet<>(BorealisConfigHandler.COMMON.blacklistedMods.get())).neverDirty());
         }
+
     }
 }

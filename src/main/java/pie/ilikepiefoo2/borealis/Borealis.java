@@ -1,5 +1,6 @@
 package pie.ilikepiefoo2.borealis;
 
+
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,7 +13,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pie.ilikepiefoo2.borealis.defaultpages.DefaultBorealisHandler;
-
 import static pie.ilikepiefoo2.borealis.Borealis.MOD_ID;
 
 @Mod(MOD_ID)
@@ -44,6 +44,7 @@ public class Borealis {
     {
         start(event.getServer());
     }
+
 
     @SubscribeEvent
     public void onServerStopping(FMLServerStoppingEvent event)

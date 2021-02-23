@@ -7,6 +7,7 @@ import net.minecraftforge.eventbus.api.Event;
 import pie.ilikepiefoo2.borealis.page.WebPage;
 
 import javax.annotation.Nullable;
+import java.util.function.Function;
 
 /**
  * @author LatvianModder
@@ -63,6 +64,11 @@ public class BorealisPageEvent extends Event
     {
         setPage(p);
         setCanceled(true);
+    }
+
+    public void cachePage(String uri, Function<? super String, ? extends WebPage> supplier)
+    {
+        returnPage(WebCache.getOrCreate(uri,supplier));
     }
 
     public boolean checkPath(String... path)

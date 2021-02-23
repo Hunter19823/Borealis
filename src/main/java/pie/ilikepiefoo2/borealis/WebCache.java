@@ -10,11 +10,8 @@ public class WebCache extends HashMap<String, WebPage> {
     {
         super();
     }
-
     public static WebPage getOrCreate(String uri, Function<? super String, ? extends WebPage> createFunction)
     {
         return INSTANCE.computeIfAbsent(uri,createFunction);
     }
-
-
 }

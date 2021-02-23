@@ -2,22 +2,16 @@ package pie.ilikepiefoo2.borealis;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModList;
 import org.apache.commons.lang3.tuple.Pair;
 import pie.ilikepiefoo2.borealis.page.PageType;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public final class BorealisConfigHandler {
 
     public static class Common {
         public final ForgeConfigSpec.IntValue borealisPort;
-
-
         public final ForgeConfigSpec.EnumValue<PageType> modListPage;
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> blacklistedMods;
         public final ForgeConfigSpec.EnumValue<PageType> playerListPage;
