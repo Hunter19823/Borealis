@@ -12,7 +12,7 @@ public class ScriptTag extends UnpairedTag {
     public void build(StringBuilder builder)
     {
         builder.append("<"+name+">");
-        builder.append(script.replace("\n",""));
+        builder.append(script.replace("\n","").replace("\r",""));
         builder.append("</"+name+">");
     }
 }
