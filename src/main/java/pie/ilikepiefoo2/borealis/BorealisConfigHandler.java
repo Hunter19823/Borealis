@@ -3,14 +3,17 @@ package pie.ilikepiefoo2.borealis;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import pie.ilikepiefoo2.borealis.page.PageType;
 
 import java.util.Collections;
 import java.util.List;
 
 public final class BorealisConfigHandler {
-
+    public static final Logger LOGGER = LogManager.getLogger();
     public static class Common {
+        public final ForgeConfigSpec.BooleanValue enable;
         public final ForgeConfigSpec.IntValue borealisPort;
         public final ForgeConfigSpec.EnumValue<PageType> modListPage;
         public final ForgeConfigSpec.ConfigValue<List<? extends String>> blacklistedMods;
@@ -21,7 +24,11 @@ public final class BorealisConfigHandler {
 
         public Common(ForgeConfigSpec.Builder builder)
         {
-
+            builder.push("Enable Borealis");
+            builder.comment("Enable or disable the Borealis Mod?");
+            builder.comment("Borealis opens a port on your computer to allow you to connect to it.");
+            builder.comment("If you don't want to use Borealis, you can disable it here without removing it.");
+            enable = builder.define("isEnabled", true);
             builder.push("borealisPort");
             borealisPort = builder
                     .comment("Borealis Webserver Port. Default: 48574")
@@ -61,7 +68,7 @@ public final class BorealisConfigHandler {
                     .comment("Enable/Disable worldInfo JSON.")
                     .defineEnum("worldInfoJSON",PageType.ENABLED,   PageType.values());
             builder.pop();
-
+            builder.pop();
         }
     }
 
@@ -75,6 +82,11 @@ public final class BorealisConfigHandler {
 
     public static void onConfigLoad()
     {
+        if(!COMMON.enable.get()){
+            Borealis.stop();
+        }else{
+            LOGGER.info("Borealis is now enabled! In order for the server to start you must re-log in single player or restart your server.");
+        }
         //blacklistedMods = COMMON.blacklistedMods.get().stream().map(ResourceLocation::new).collect(Collectors.toSet());
     }
 

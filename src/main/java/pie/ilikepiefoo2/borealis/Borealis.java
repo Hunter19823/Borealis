@@ -13,6 +13,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pie.ilikepiefoo2.borealis.defaultpages.DefaultBorealisHandler;
+
+import javax.annotation.Nullable;
+
 import static pie.ilikepiefoo2.borealis.Borealis.MOD_ID;
 
 @Mod(MOD_ID)
@@ -34,6 +37,7 @@ public class Borealis {
         FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfig.Reloading e) -> BorealisConfigHandler.onConfigLoad());
     }
 
+    @Nullable
     public static BorealisServer getServer()
     {
         return server;
@@ -42,7 +46,11 @@ public class Borealis {
     @SubscribeEvent
     public void onServerStart(FMLServerStartingEvent event)
     {
-        start(event.getServer());
+        if(BorealisConfigHandler.COMMON.enable.get()) {
+            start(event.getServer());
+        }else {
+            LOGGER.info("Borealis is disabled. If this is intentional, please ignore this message and enjoy your day :)");
+        }
     }
 
 
@@ -56,9 +64,10 @@ public class Borealis {
     {
         if(server == null)
         {
-            LOGGER.debug("Starting up server...");
+            LOGGER.info("Starting Borealis Server... on port "+BorealisConfigHandler.COMMON.borealisPort.get());
             server = new BorealisServer(BorealisConfigHandler.COMMON.borealisPort.get(),minecraftServer);
             server.start();
+            LOGGER.info("Quick access URL: http://localhost:"+BorealisConfigHandler.COMMON.borealisPort.get()+"/");
         }
     }
 
@@ -66,8 +75,8 @@ public class Borealis {
     {
         if(server != null)
         {
-            LOGGER.debug("Shutting down server...");
             server.shutdown();
+            LOGGER.info("Shutting-down Borealis Server...");
             server = null;
         }
     }
