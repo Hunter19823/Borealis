@@ -25,9 +25,10 @@ public final class BorealisConfigHandler {
         public Common(ForgeConfigSpec.Builder builder)
         {
             builder.push("Enable Borealis");
-            builder.comment("Enable or disable the Borealis Mod?");
-            builder.comment("Borealis opens a port on your computer to allow you to connect to it.");
-            builder.comment("If you don't want to use Borealis, you can disable it here without removing it.");
+            builder.comment(
+                    "Enable or disable the Borealis Mod?",
+                    "Borealis opens a port on your computer to allow you to connect to it.",
+                    "If you don't want to use Borealis, you can disable it here without removing it.");
             enable = builder.define("isEnabled", true);
             builder.push("borealisPort");
             borealisPort = builder
