@@ -15,16 +15,11 @@ public class UtilPageHandler {
     public static void onHomeEvent(BorealisHomePageEvent event)
     {
         event.add(new HomePageEntry("Mod List", ModListPage.URI, "https://i.imgur.com/yQNrfg7.png"));
-        event.add(new HomePageEntry("JSON Viewer", JSONPage.URI, "https://i.imgur.com/a5dkvFu.png"));
-        //event.add(new HomePageEntry("JSON Viewer", JSONPage.URI, "https://i.imgur.com/a5dkvFu.png"));
     }
 
 
     public static void onPageEvent(BorealisPageEvent event){
-        if (event.checkPath(JSONPage.URI))
-        {
-            event.cachePage(JSONPage.URI, s -> new JSONPage());
-        } else if (event.checkPath(ModListPage.URI, "*"))
+        if (event.checkPath(ModListPage.URI, "*"))
         {
             HashSet<String> set = new HashSet(Arrays.asList(BorealisConfigHandler.COMMON.blacklistedMods.get()));
 

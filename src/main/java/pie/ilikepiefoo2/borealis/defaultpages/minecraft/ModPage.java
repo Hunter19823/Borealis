@@ -53,9 +53,9 @@ public class ModPage extends HTTPWebPage
             body.h3("").paired("i", mod.getDescription());
         }
 
-        if (mod.getUpdateURL() != null)
+        if (mod.getUpdateURL().isPresent())
         {
-            body.h3("").a(mod.getUpdateURL().toString(), mod.getUpdateURL().toString());
+            body.h3("").a(mod.getUpdateURL().get().toString(), mod.getUpdateURL().get().toString());
         }
         if (mod.getModProperties().containsKey("authors"))
         {

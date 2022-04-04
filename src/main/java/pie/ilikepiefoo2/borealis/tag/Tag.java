@@ -1,6 +1,6 @@
 package pie.ilikepiefoo2.borealis.tag;
 
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.ChatFormatting;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -58,7 +58,7 @@ public abstract class Tag extends TagBase
 
         for (String t : title)
         {
-            String s = TextFormatting.getTextWithoutFormattingCodes(t);
+            String s = ChatFormatting.stripFormatting(t);
 
             if (first)
             {

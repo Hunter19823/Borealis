@@ -1,7 +1,7 @@
 package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
 import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;
@@ -44,9 +44,9 @@ public class PlayerListPage extends HTTPWebPage {
     {
         addTitleIcon(body);
         Tag playerTable = body.table().addClass("player_table");
-        for (ServerPlayerEntity player : server.getPlayerList().getPlayers())
+        for (ServerPlayer player : server.getPlayerList().getPlayers())
         {
-            String id = player.getUniqueID().toString().replace("-", "");
+            String id = player.getStringUUID().replace("-", "");
             Tag row = playerTable.tr();
             row.td().img("https://crafatar.com/avatars/" + id + "?size=16");
             row.td().a(player.getGameProfile().getName(), "https://mcuuid.net/?q=" + id);

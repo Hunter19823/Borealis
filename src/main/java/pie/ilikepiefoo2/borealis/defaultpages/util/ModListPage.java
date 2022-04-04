@@ -2,7 +2,7 @@ package pie.ilikepiefoo2.borealis.defaultpages.util;
 
 
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
+import net.minecraftforge.forgespi.language.IModInfo;
 import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.HTTPWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;
@@ -64,7 +64,7 @@ public class ModListPage extends HTTPWebPage
         int i = 0;
 
 
-        for (ModInfo info : ModList.get().getMods())
+        for (IModInfo info : ModList.get().getMods())
         {
             if (!excludedMods.contains(info.getModId()))
             {

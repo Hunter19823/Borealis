@@ -4,7 +4,7 @@ package pie.ilikepiefoo2.borealis.defaultpages.minecraft;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.server.level.ServerLevel;
 import pie.ilikepiefoo2.borealis.BorealisConfigHandler;
 import pie.ilikepiefoo2.borealis.page.JsonWebPage;
 import pie.ilikepiefoo2.borealis.page.PageType;
@@ -31,23 +31,24 @@ public class WorldInfoJson extends JsonWebPage {
     public JsonElement getJson()
     {
         JsonObject json = new JsonObject();
-        server.getWorlds().forEach(
-                serverWorld -> json.add(serverWorld.getDimensionKey().getLocation().toString(),getWorldJSON(serverWorld))
+
+        server.getAllLevels().forEach(
+                serverWorld -> json.add(serverWorld.dimension().location().toString(),getWorldJSON(serverWorld))
         );
         return json;
     }
 
-    public static JsonObject getWorldJSON(ServerWorld world)
+    public static JsonObject getWorldJSON( ServerLevel level)
     {
         JsonObject json = new JsonObject();
-        json.addProperty("local_time", world.getDayTime());
-        json.addProperty("total_time", world.getGameTime());
-        json.addProperty("daytime", world.isDaytime());
-        json.addProperty("raining", world.isRaining());
-        json.addProperty("thundering", world.isThundering());
+        json.addProperty("local_time", level.getDayTime());
+        json.addProperty("total_time", level.getGameTime());
+        json.addProperty("daytime", level.isDay());
+        json.addProperty("raining", level.isRaining());
+        json.addProperty("thundering", level.isThundering());
         // Get Moon Phase is client only.
 
-        //json.addProperty("moon_phase", world.getMoonPhase());
+        //json.addProperty("moon_phase", level.getMoonPhase());
         return json;
     }
 }

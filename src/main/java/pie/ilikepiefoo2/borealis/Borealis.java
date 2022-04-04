@@ -3,12 +3,13 @@ package pie.ilikepiefoo2.borealis;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
-import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,8 +34,9 @@ public class Borealis {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BorealisConfigHandler.COMMON_SPEC);
         MinecraftForge.EVENT_BUS.register(new DefaultBorealisHandler());
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfig.Loading e) -> BorealisConfigHandler.onConfigLoad());
-        FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfig.Reloading e) -> BorealisConfigHandler.onConfigLoad());
+
+        FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfigEvent.Loading e) -> BorealisConfigHandler.onConfigLoad());
+        FMLJavaModLoadingContext.get().getModEventBus().addListener((ModConfigEvent.Reloading e) -> BorealisConfigHandler.onConfigLoad());
     }
 
     @Nullable
@@ -44,7 +46,7 @@ public class Borealis {
     }
 
     @SubscribeEvent
-    public void onServerStart(FMLServerStartingEvent event)
+    public void onServerStart( ServerStartingEvent event)
     {
         if(BorealisConfigHandler.COMMON.enable.get()) {
             start(event.getServer());
@@ -55,7 +57,7 @@ public class Borealis {
 
 
     @SubscribeEvent
-    public void onServerStopping(FMLServerStoppingEvent event)
+    public void onServerStopping( ServerStoppingEvent event)
     {
         stop();
     }

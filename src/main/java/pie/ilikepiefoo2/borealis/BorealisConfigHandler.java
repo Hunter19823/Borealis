@@ -1,6 +1,7 @@
 package pie.ilikepiefoo2.borealis;
 
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
@@ -20,7 +21,6 @@ public final class BorealisConfigHandler {
         public final ForgeConfigSpec.EnumValue<PageType> playerListPage;
         public final ForgeConfigSpec.EnumValue<PageType> playerListJSON;
         public final ForgeConfigSpec.EnumValue<PageType> worldInfoJSON;
-        public final ForgeConfigSpec.EnumValue<PageType> jsonUtilPage;
 
         public Common(ForgeConfigSpec.Builder builder)
         {
@@ -46,18 +46,13 @@ public final class BorealisConfigHandler {
                     )
                     .defineList("blacklistedMods",
                             Collections.emptyList(),
-                            s -> s instanceof String && ResourceLocation.tryCreate((String) s) != null
+                            s -> s instanceof String && ResourceLocation.tryParse((String) s) != null
                     );
             builder.pop();
             builder.push("playerListPage");
             playerListPage = builder
                     .comment("Enable/Disable PlayerList Page.")
                     .defineEnum("playerListPage",PageType.ENABLED,  PageType.values());
-            builder.pop();
-            builder.push("jsonUtilPage");
-            jsonUtilPage = builder
-                    .comment("Enable/Disable jsonUtil Page.")
-                    .defineEnum("jsonUtilPage",PageType.ENABLED,   PageType.values());
             builder.pop();
             builder.push("playerListJSON");
             playerListJSON = builder
@@ -88,7 +83,6 @@ public final class BorealisConfigHandler {
         }else{
             LOGGER.info("Borealis is now enabled! In order for the server to start you must re-log in single player or restart your server.");
         }
-        //blacklistedMods = COMMON.blacklistedMods.get().stream().map(ResourceLocation::new).collect(Collectors.toSet());
     }
 
 }
